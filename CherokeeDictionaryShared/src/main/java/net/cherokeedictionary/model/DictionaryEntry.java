@@ -15,22 +15,52 @@ public class DictionaryEntry {
 	public List<Crossreference> crossreferences=new ArrayList<>();
 	
 	public static class EntryForm {
+		public EntryForm() {
+		}
+		public EntryForm(EntryFormType formType, String syllabary, String pronunciation, String latin) {
+			this.formType=formType;
+			this.syllabary=syllabary;
+			this.pronunciation=pronunciation;
+			this.latin=latin;
+		}
+		public EntryFormType formType=EntryFormType.Other;
 		public String syllabary;
 		public String pronunciation;
-		public String translit;
+		public String latin;
 	}
 	
 	public static class EntryExample {
+		public EntryExample(String syllabary, String latin, String english) {
+			this.syllabary=syllabary;
+			this.latin=latin;
+			this.english=english;
+		}
 		public String syllabary;
-		public String translit;
+		public String latin;
 		public String english;
 	}
 	
+	public static enum EntryFormType {
+		Verb3rdPrc, Verb1stPrc, Verb3rdPast, Verb3rdHab, Verb2ndImp, Verb3rdImp, Verb3rdInf, Other;
+	}
+	
 	public static class Note {
+		public Note() {
+		}
+		public Note(String note) {
+			this.note=note;
+		}
+
 		public String note;
 	}
 	
 	public static class Crossreference {
+		public Crossreference() {
+		}
+		public Crossreference(String crossreferencet) {
+			this.crossReference=crossreferencet;
+		}
+
 		public String crossReference;
 	}
 }
