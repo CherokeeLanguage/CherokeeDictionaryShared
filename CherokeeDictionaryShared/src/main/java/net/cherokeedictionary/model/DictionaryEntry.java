@@ -1,5 +1,6 @@
 package net.cherokeedictionary.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DictionaryEntry {
@@ -7,11 +8,11 @@ public class DictionaryEntry {
 	public String source;
 	public String pos;
 	
-	public List<EntryForm> forms;
-	public List<String> definitions;
-	public List<EntryExample> examples;
-	public List<Note> notes;
-	public List<Crossreference> crossreferences;
+	public List<EntryForm> forms=new ArrayList<>();
+	public List<String> definitions=new ArrayList<>();
+	public List<EntryExample> examples=new ArrayList<>();
+	public List<Note> notes=new ArrayList<>();
+	public List<Crossreference> crossreferences=new ArrayList<>();
 	
 	public static class EntryForm {
 		public String syllabary;
