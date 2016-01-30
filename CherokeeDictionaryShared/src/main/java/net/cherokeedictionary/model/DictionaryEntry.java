@@ -1,6 +1,7 @@
 package net.cherokeedictionary.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DictionaryEntry {
@@ -13,6 +14,8 @@ public class DictionaryEntry {
 	public List<EntryExample> examples=new ArrayList<>();
 	public List<Note> notes=new ArrayList<>();
 	public List<Crossreference> crossreferences=new ArrayList<>();
+	
+	public Date modified;
 	
 	public static class EntryForm {
 		public EntryForm() {
@@ -30,6 +33,8 @@ public class DictionaryEntry {
 	}
 	
 	public static class EntryExample {
+		public EntryExample() {
+		}
 		public EntryExample(String syllabary, String latin, String english) {
 			this.syllabary=syllabary;
 			this.latin=latin;
