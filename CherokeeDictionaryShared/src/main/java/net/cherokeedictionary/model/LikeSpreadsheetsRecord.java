@@ -93,4 +93,5 @@ public class LikeSpreadsheetsRecord {
 	private static String defaultString(String text) {
 		return text == null ? "" : text;
 	}
+	
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class DictionaryEntry {
+public class DictionaryEntry implements Comparable<DictionaryEntry> {
 	public int id;
 	public String source;
 	public String pos;
@@ -16,6 +16,25 @@ public class DictionaryEntry {
 	public List<Crossreference> crossreferences=new ArrayList<>();
 	
 	public Date modified;
+	
+	public DictionaryEntry() {
+	}
+	
+	/**
+	 * Creates a new object that is a <strong>shallow</strong> copy of the source.
+	 * @param entry
+	 */
+	public DictionaryEntry(DictionaryEntry entry){
+		id=entry.id;
+		source=entry.source;
+		pos=entry.pos;
+		forms.addAll(entry.forms);
+		definitions.addAll(entry.definitions);
+		examples.addAll(entry.examples);
+		notes.addAll(entry.notes);
+		crossreferences.addAll(entry.crossreferences);
+		modified=entry.modified;
+	}
 	
 	public static class EntryForm {
 		public EntryForm() {
@@ -67,5 +86,36 @@ public class DictionaryEntry {
 		}
 
 		public String crossReference;
+	}
+	
+	private String _sortKey=null;
+	private String getSortKey(){
+		if (_sortKey!=null) {
+			return _sortKey;
+		}
+		StringBuilder sb = new StringBuilder();
+		for (EntryForm form: forms){
+			if (form.syllabary!=null&&!form.syllabary.isEmpty()) {
+				if (sb.length()!=0) {
+					sb.append("-");
+				}
+				sb.append(form.syllabary);
+			}
+		}
+		for (EntryForm form: forms){
+			if (form.pronunciation!=null&&!form.pronunciation.isEmpty()) {
+				if (sb.length()!=0) {
+					sb.append("-");
+				}
+				sb.append(form.pronunciation);
+			}
+		}
+		_sortKey=sb.toString();
+		return _sortKey;
+	}
+
+	@Override
+	public int compareTo(DictionaryEntry o) {
+		return getSortKey().compareTo(o.getSortKey());
 	}
 }
