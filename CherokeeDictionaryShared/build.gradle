@@ -15,9 +15,9 @@ if (new File(RTJAR).exists()) {
 jar {
   from project.sourceSets.main.allSource
   from project.sourceSets.main.output
-  /*from ('src/main/resources') {
-  	include 'client/stubs/**/*.java'
-  }*/
+  //from ('src/main/resources') {
+  //	include 'client/stubs/**/*.java'
+  //}
 }
 
 version = '20160731'
