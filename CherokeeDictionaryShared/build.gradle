@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'eclipse-wtp'
 
-group "com.github.michael-joyner"
+group "com.github.CherokeeLanguage"
 version = '20160801'
 
 sourceCompatibility = 1.7
