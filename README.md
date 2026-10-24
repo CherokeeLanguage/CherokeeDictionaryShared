@@ -1,17 +1,3 @@
-# CherokeeDictionaryShared
-Cherokee Dictionary Shared Code / Models / Etc
+#README
 
-Available via jitpack.io: https://jitpack.io/#CherokeeLanguage/CherokeeDictionaryShared/
-
-Gradle:
-```
-repositories {
-  ...
-  maven { url "https://jitpack.io" }
-}
-
-dependencies {
-  compile 'com.github.CherokeeLanguage:CherokeeDictionaryShared:20160731'
-  }
-}
-```
+Code in the project MUST be compatible with GWT 2.8
